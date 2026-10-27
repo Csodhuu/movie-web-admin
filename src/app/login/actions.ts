@@ -33,7 +33,9 @@ export async function login(
 
   try {
     await connectDB();
-  } catch {
+  } catch (err) {
+    // Жинхэнэ шалтгаан (env байхгүй, IP зөвшөөрөөгүй, нууц үг буруу) Vercel → Logs дээр харагдана
+    console.error("[login] MongoDB холболт амжилтгүй:", err);
     return {
       error: "Өгөгдлийн сантай холбогдож чадсангүй. Дараа дахин оролдоно уу.",
       email,

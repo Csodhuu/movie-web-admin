@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Avatar, Badge, Button, Card, PageHeader, StatusBadge, cn, inputClass, type BadgeTone } from "@/components/admin";
-import { tickets, type Priority } from "@/lib/mock-data";
+import { Avatar, Badge, Button, Card, EmptyState, PageHeader, StatusBadge, cn, inputClass, type BadgeTone } from "@/components/admin";
+import { tickets, type Priority } from "@/lib/placeholders";
 
 const priorityMeta: Record<Priority, { label: string; tone: BadgeTone }> = {
   high: { label: "Яаралтай", tone: "red" },
@@ -11,15 +11,23 @@ const priorityMeta: Record<Priority, { label: string; tone: BadgeTone }> = {
 };
 
 export function TicketsInbox() {
-  const [activeId, setActiveId] = useState(tickets[0].id);
+  const [activeId, setActiveId] = useState(tickets[0]?.id ?? "");
   const [reply, setReply] = useState("");
   const [messages, setMessages] = useState<Record<string, { from: "user" | "admin"; text: string }[]>>({});
-  const active = tickets.find((t) => t.id === activeId)!;
+  const active = tickets.find((t) => t.id === activeId);
 
-  const thread = [
-    { from: "user" as const, text: `Сайн байна уу. ${active.subject}. Яах вэ?` },
-    ...(messages[activeId] ?? []),
-  ];
+  if (!active) {
+    return (
+      <>
+        <PageHeader title="Хүсэлт, тикет" description="Хэрэглэгчдийн асуудал, хүсэлтийг шийдвэрлэх" />
+        <Card>
+          <EmptyState icon="ticket" title="Одоогоор хүсэлт алга" desc="Хэрэглэгчид хүсэлт илгээхэд энд харагдана" />
+        </Card>
+      </>
+    );
+  }
+
+  const thread = messages[activeId] ?? [];
 
   return (
     <>

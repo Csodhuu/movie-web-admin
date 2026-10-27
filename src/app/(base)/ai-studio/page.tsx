@@ -6,13 +6,13 @@ import { Icon, type IconName } from "@/components/icons";
 export const metadata: Metadata = { title: "AI студи" };
 
 const tools: { href: string; label: string; desc: string; icon: IconName; stat: string }[] = [
-  { href: "/ai-studio/recommendations", label: "Санал болголтын систем", desc: "Хэрэглэгч бүрт тохирсон контент санал болгох модель", icon: "sparkles", stat: "CTR 26.3%" },
-  { href: "/ai-studio/subtitles", label: "AI хадмал орчуулга", desc: "Яриаг таньж, олон хэл рүү хадмал үүсгэх", icon: "language", stat: "1,284 файл" },
-  { href: "/ai-studio/dubbing", label: "AI дуу оруулга", desc: "Дүрийн дуу хоолойг хадгалан өөр хэлээр дуу оруулах", icon: "mic", stat: "42 кино" },
-  { href: "/ai-studio/posters", label: "Постер, thumbnail", desc: "Видеоноос хамгийн тохиромжтой кадр сонгож постер үүсгэх", icon: "image", stat: "318 зураг" },
-  { href: "/ai-studio/metadata", label: "Автомат шошго, тайлбар", desc: "Товч агуулга, түлхүүр үг, жанрыг автоматаар бичих", icon: "tag", stat: "96% нарийвчлал" },
-  { href: "/ai-studio/moderation", label: "Шүүлт, насны ангилал", desc: "Хүчирхийлэл, бүдүүлэг үг илрүүлж насны ангилал тогтоох", icon: "shield", stat: "14 хүлээгдэж буй" },
-  { href: "/ai-studio/highlights", label: "Highlight, трейлер", desc: "Онцлох хэсгийг таньж богино клип, трейлер таслах", icon: "scissors", stat: "87 клип" },
+  { href: "/ai-studio/recommendations", label: "Санал болголтын систем", desc: "Хэрэглэгч бүрт тохирсон контент санал болгох модель", icon: "sparkles", stat: "" },
+  { href: "/ai-studio/subtitles", label: "AI хадмал орчуулга", desc: "Яриаг таньж, олон хэл рүү хадмал үүсгэх", icon: "language", stat: "" },
+  { href: "/ai-studio/dubbing", label: "AI дуу оруулга", desc: "Дүрийн дуу хоолойг хадгалан өөр хэлээр дуу оруулах", icon: "mic", stat: "" },
+  { href: "/ai-studio/posters", label: "Постер, thumbnail", desc: "Видеоноос хамгийн тохиромжтой кадр сонгож постер үүсгэх", icon: "image", stat: "" },
+  { href: "/ai-studio/metadata", label: "Автомат шошго, тайлбар", desc: "Товч агуулга, түлхүүр үг, жанрыг автоматаар бичих", icon: "tag", stat: "" },
+  { href: "/ai-studio/moderation", label: "Шүүлт, насны ангилал", desc: "Хүчирхийлэл, бүдүүлэг үг илрүүлж насны ангилал тогтоох", icon: "shield", stat: "" },
+  { href: "/ai-studio/highlights", label: "Highlight, трейлер", desc: "Онцлох хэсгийг таньж богино клип, трейлер таслах", icon: "scissors", stat: "" },
 ];
 
 export default function AiStudioPage() {
@@ -25,10 +25,10 @@ export default function AiStudioPage() {
       />
 
       <div className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Энэ сарын AI ажил" value="3,412" change={22.4} icon="sparkles" />
-        <StatCard label="Хэмнэсэн цаг" value="1,860 ц" change={18.0} icon="clock" />
-        <StatCard label="Дараалалд" value="27" icon="layers" />
-        <StatCard label="API зардал" value="$412" change={-6.2} icon="wallet" />
+        <StatCard label="Энэ сарын AI ажил" value="—" icon="sparkles" />
+        <StatCard label="Хэмнэсэн цаг" value="—" icon="clock" />
+        <StatCard label="Дараалалд" value="—" icon="layers" />
+        <StatCard label="API зардал" value="—" icon="wallet" />
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

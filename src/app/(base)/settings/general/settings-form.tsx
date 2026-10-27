@@ -80,13 +80,13 @@ export function SettingsForm() {
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field label="Нэр">
-                    <input defaultValue="Админ" className={inputClass} />
+                    <input placeholder="Овог нэр" className={inputClass} />
                   </Field>
                   <Field label="Имэйл">
-                    <input type="email" defaultValue="admin@example.com" className={inputClass} />
+                    <input type="email" placeholder="name@example.com" className={inputClass} />
                   </Field>
                   <Field label="Утас">
-                    <input defaultValue="+976 9911 2233" className={inputClass} />
+                    <input placeholder="+976 ..." className={inputClass} />
                   </Field>
                   <Field label="Хэл">
                     <select className={inputClass} defaultValue="mn">
@@ -117,10 +117,10 @@ export function SettingsForm() {
               <Card title="Ерөнхий">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Field label="Платформын нэр">
-                    <input defaultValue="Movie" className={inputClass} />
+                    <input placeholder="Платформын нэр" className={inputClass} />
                   </Field>
                   <Field label="Дэмжлэгийн имэйл">
-                    <input defaultValue="support@example.com" className={inputClass} />
+                    <input placeholder="support@..." className={inputClass} />
                   </Field>
                   <Field label="Үндсэн валют">
                     <select className={inputClass}>
@@ -183,10 +183,7 @@ export function SettingsForm() {
               </Card>
               <Card title="Идэвхтэй сессүүд">
                 <ul className="divide-y divide-zinc-800/70">
-                  {[
-                    { device: "Chrome · Windows", place: "Улаанбаатар", when: "Одоо", current: true },
-                    { device: "Safari · iPhone", place: "Улаанбаатар", when: "2 цаг өмнө", current: false },
-                  ].map((s) => (
+                  {([] as { device: string; place: string; when: string; current: boolean }[]).map((s) => (
                     <li key={s.device} className="flex items-center justify-between gap-3 py-3">
                       <div>
                         <p className="text-sm text-zinc-200">

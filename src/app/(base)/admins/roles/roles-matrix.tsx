@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card, Field, PageHeader, cn, inputClass } from "@/components/admin";
 import { ModalButton, SaveButton } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { roles } from "@/lib/mock-data";
+import { ROLE_INFO as roles } from "@/lib/permissions";
 
 const permissionGroups = [
   {
@@ -97,7 +97,7 @@ export function RolesMatrix() {
             <p className="text-sm font-medium text-zinc-100">{r.name}</p>
             <p className="mt-0.5 text-xs text-zinc-500">{r.description}</p>
             <p className="mt-3 text-xs text-zinc-400">
-              {r.count} хүн · {matrix[r.name].length} эрх
+              {matrix[r.name].length} эрх
             </p>
           </Card>
         ))}

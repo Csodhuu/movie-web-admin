@@ -3,38 +3,7 @@ import { Badge, Button, Card, PageHeader, Poster, ProgressRow, StatCard } from "
 
 export const metadata: Metadata = { title: "Шүүлт, насны ангилал" };
 
-const queue = [
-  {
-    title: "Шөнийн анчин",
-    suggested: "18+",
-    confidence: 92,
-    flags: [
-      { label: "Хүчирхийлэл", value: 78 },
-      { label: "Бүдүүлэг үг", value: 41 },
-      { label: "Тамхи, архи", value: 22 },
-    ],
-  },
-  {
-    title: "Хотын шөнө E1",
-    suggested: "16+",
-    confidence: 85,
-    flags: [
-      { label: "Хүчирхийлэл", value: 46 },
-      { label: "Бүдүүлэг үг", value: 52 },
-      { label: "Тамхи, архи", value: 30 },
-    ],
-  },
-  {
-    title: "Од эрхэс E1",
-    suggested: "7+",
-    confidence: 97,
-    flags: [
-      { label: "Хүчирхийлэл", value: 8 },
-      { label: "Бүдүүлэг үг", value: 2 },
-      { label: "Тамхи, архи", value: 0 },
-    ],
-  },
-];
+const queue: { title: string; suggested: string; confidence: number; flags: { label: string; value: number }[] }[] = [];
 
 const ratingTone = { "18+": "red", "16+": "yellow", "7+": "green" } as const;
 
@@ -44,9 +13,9 @@ export default function ModerationPage() {
       <PageHeader title="Контент шүүлт, насны ангилал" description="AI шинжилгээгээр насны ангилал санал болгож, хүнээр баталгаажуулах" />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-3">
-        <StatCard label="Хянах хүлээгдэж буй" value="14" icon="clock" />
-        <StatCard label="Энэ сард шалгасан" value="186" change={9.4} icon="check" />
-        <StatCard label="AI-тай санал нийлсэн" value="93%" change={1.8} icon="sparkles" />
+        <StatCard label="Хянах хүлээгдэж буй" value="—" icon="clock" />
+        <StatCard label="Энэ сард шалгасан" value="—" icon="check" />
+        <StatCard label="AI-тай санал нийлсэн" value="—" icon="sparkles" />
       </div>
 
       <div className="grid gap-4 xl:grid-cols-3">

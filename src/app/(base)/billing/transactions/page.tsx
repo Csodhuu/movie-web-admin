@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Badge, Button, Card, IconButton, PageHeader, SearchInput, Table, Td, type BadgeTone } from "@/components/admin";
 import { Tabs } from "@/components/admin-client";
-import { formatMNT, transactions, type TxStatus } from "@/lib/mock-data";
+import { transactions, type TxStatus } from "@/lib/placeholders";
+import { formatMNT } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Гүйлгээ" };
 

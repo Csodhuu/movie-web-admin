@@ -1,23 +1,14 @@
 import type { Metadata } from "next";
 import { Badge, Button, Card, Field, PageHeader, inputClass } from "@/components/admin";
 import { Icon } from "@/components/icons";
-import { movies } from "@/lib/mock-data";
+import { movies } from "@/lib/placeholders";
 import { JobQueue, type Job } from "../_components/jobs";
 
 export const metadata: Metadata = { title: "Highlight, трейлер" };
 
-const clips = [
-  { start: "00:12:41", end: "00:13:10", label: "Морин уралдаан", score: 96, type: "Экшн" },
-  { start: "00:47:05", end: "00:47:32", label: "Сэтгэл хөдлөм уулзалт", score: 91, type: "Драм" },
-  { start: "01:21:18", end: "01:21:45", label: "Оргил тулаан", score: 89, type: "Экшн" },
-  { start: "01:58:02", end: "01:58:20", label: "Төгсгөлийн зураг", score: 84, type: "Үзэмж" },
-];
+const clips: { start: string; end: string; label: string; score: number; type: string }[] = [];
 
-const jobs: Job[] = [
-  { id: "h1", title: "Шөнийн анчин", detail: "60 сек трейлер", progress: 100, status: "done", created: "11:05" },
-  { id: "h2", title: "Мөнгөн хөндий", detail: "Shorts × 5 (9:16)", progress: 45, status: "processing", created: "10:50" },
-  { id: "h3", title: "Сүүлчийн тоглолт", detail: "Highlight илрүүлэх", progress: 0, status: "queued", created: "10:12" },
-];
+const jobs: Job[] = [];
 
 export default function HighlightsPage() {
   return (
@@ -53,10 +44,10 @@ export default function HighlightsPage() {
           </div>
         </Card>
 
-        <Card title="Илрүүлсэн хэсгүүд — Тэнгэрийн хаалга">
+        <Card title="Илрүүлсэн хэсгүүд">
           {/* Timeline */}
           <div className="relative mb-5 h-10 rounded-lg bg-zinc-900">
-            {[9, 35, 61, 88].map((left, i) => (
+            {([] as number[]).map((left, i) => (
               <span
                 key={i}
                 className="absolute top-1 bottom-1 w-[3%] rounded bg-red-500/70"

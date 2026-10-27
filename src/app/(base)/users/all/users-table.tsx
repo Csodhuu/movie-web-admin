@@ -16,7 +16,7 @@ import {
   inputClass,
   type BadgeTone,
 } from "@/components/admin";
-import { users as initialUsers, type UserPlan, type UserStatus } from "@/lib/mock-data";
+import { users as initialUsers, type UserPlan, type UserStatus } from "@/lib/placeholders";
 
 const statusMeta: Record<UserStatus, { label: string; tone: BadgeTone }> = {
   active: { label: "Идэвхтэй", tone: "green" },
@@ -74,10 +74,10 @@ export function UsersTable() {
       />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Нийт" value="34,650" change={8.2} icon="users" />
-        <StatCard label="Энэ сард шинэ" value="2,184" change={14.7} icon="plus" />
-        <StatCard label="Өнөөдөр идэвхтэй" value="9,412" change={3.2} icon="eye" />
-        <StatCard label="Түдгэлзүүлсэн" value="87" change={-5.1} icon="lock" />
+        <StatCard label="Нийт" value="—" icon="users" />
+        <StatCard label="Энэ сард шинэ" value="—" icon="plus" />
+        <StatCard label="Өнөөдөр идэвхтэй" value="—" icon="eye" />
+        <StatCard label="Түдгэлзүүлсэн" value="—" icon="lock" />
       </div>
 
       <Card>
@@ -166,7 +166,7 @@ export function UsersTable() {
             Бүгдийг сонгох
           </label>
           <div className="flex items-center gap-1">
-            <span className="mr-2">1–{filtered.length} / 34,650</span>
+            <span className="mr-2">{filtered.length} хэрэглэгч</span>
             <IconButton icon="down" label="Өмнөх" className="rotate-[135deg]" />
             <IconButton icon="up" label="Дараах" className="rotate-45" />
           </div>

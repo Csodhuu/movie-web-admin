@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Avatar, Badge, Button, Card, PageHeader, StatCard, cn, type BadgeTone } from "@/components/admin";
 import { Icon } from "@/components/icons";
-import { reviews as initialReviews, type ReviewStatus } from "@/lib/mock-data";
+import { reviews as initialReviews, type ReviewStatus } from "@/lib/placeholders";
 
 const statusMeta: Record<ReviewStatus, { label: string; tone: BadgeTone }> = {
   approved: { label: "Зөвшөөрсөн", tone: "green" },
@@ -33,7 +33,7 @@ export function ReviewsQueue() {
       <PageHeader title="Сэтгэгдэл ба үнэлгээ" description="Хэрэглэгчдийн сэтгэгдлийг хянах, зохицуулах" />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-3">
-        <StatCard label="Дундаж үнэлгээ" value="4.4 / 5" change={1.2} icon="star" />
+        <StatCard label="Дундаж үнэлгээ" value="—" icon="star" />
         <StatCard
           label="Хүлээгдэж буй"
           value={String(items.filter((r) => r.status === "pending").length)}

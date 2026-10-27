@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Badge, Card, IconButton, PageHeader, ProgressRow, SearchInput, Table, Td, UploadBox } from "@/components/admin";
 import { Tabs } from "@/components/admin-client";
 import { Icon, type IconName } from "@/components/icons";
-import { mediaFiles } from "@/lib/mock-data";
+import { mediaFiles } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Медиа сан" };
 
@@ -16,28 +16,16 @@ export default function MediaPage() {
       <div className="grid gap-4 xl:grid-cols-3">
         <Card className="xl:col-span-2">
           <UploadBox title="Файлаа энд чирж оруулах эсвэл дарж сонгох" hint="MP4, MOV, MKV, JPG, PNG, SRT, VTT · 50GB хүртэл" />
-          <div className="mt-4 rounded-lg border border-zinc-800 p-3">
-            <div className="mb-2 flex items-center justify-between text-sm">
-              <span className="flex items-center gap-2 text-zinc-200">
-                <Icon name="film" className="size-4 text-zinc-500" />
-                shuniin_anchin_master.mov
-              </span>
-              <span className="text-xs text-zinc-500">Транскод хийж байна · 64%</span>
-            </div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-zinc-800">
-              <div className="h-full w-[64%] animate-pulse rounded-full bg-red-500" />
-            </div>
-          </div>
         </Card>
 
         <Card title="Хадгалах сан">
           <p className="text-2xl font-bold text-white">
-            8.4 TB <span className="text-sm font-normal text-zinc-500">/ 20 TB</span>
+            0 TB <span className="text-sm font-normal text-zinc-500">/ 20 TB</span>
           </p>
           <div className="mt-4 space-y-3">
-            <ProgressRow label="Видео" value={7.9} max={20} suffix=" TB" />
-            <ProgressRow label="Зураг" value={0.4} max={20} suffix=" TB" />
-            <ProgressRow label="Хадмал" value={0.1} max={20} suffix=" TB" />
+            <ProgressRow label="Видео" value={0} max={20} suffix=" TB" />
+            <ProgressRow label="Зураг" value={0} max={20} suffix=" TB" />
+            <ProgressRow label="Хадмал" value={0} max={20} suffix=" TB" />
           </div>
         </Card>
       </div>

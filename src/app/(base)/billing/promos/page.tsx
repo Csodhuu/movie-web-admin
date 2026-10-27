@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Badge, Card, Field, IconButton, PageHeader, Table, Td, inputClass } from "@/components/admin";
 import { CopyField, ModalButton } from "@/components/admin-client";
-import { promos } from "@/lib/mock-data";
+import { promos } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Промо код, купон" };
 

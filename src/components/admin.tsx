@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { Children, type ReactNode } from "react";
 import { Icon, type IconName } from "./icons";
 
 export function cn(...classes: (string | false | null | undefined)[]) {
@@ -203,7 +203,17 @@ export function Table({ head, children }: { head: string[]; children: ReactNode 
             ))}
           </tr>
         </thead>
-        <tbody className="divide-y divide-zinc-800/70">{children}</tbody>
+        <tbody className="divide-y divide-zinc-800/70">
+          {Children.count(children) > 0 ? (
+            children
+          ) : (
+            <tr>
+              <td colSpan={head.length} className="px-5 py-12 text-center text-sm text-zinc-500">
+                Мэдээлэл алга
+              </td>
+            </tr>
+          )}
+        </tbody>
       </table>
     </div>
   );
@@ -242,6 +252,22 @@ export function SearchInput({
   );
 }
 
+function ChartEmpty({ height }: { height: number }) {
+  return (
+    <div
+      className="flex items-center justify-center rounded-lg border border-dashed border-zinc-800 text-sm text-zinc-500"
+      style={{ height }}
+    >
+      Мэдээлэл алга
+    </div>
+  );
+}
+
+/** Жагсаалт хоосон үед карт дотор харуулах жижиг мессеж */
+export function NoData({ text = "Мэдээлэл алга" }: { text?: string }) {
+  return <p className="py-8 text-center text-sm text-zinc-500">{text}</p>;
+}
+
 export function BarChart({
   data,
   height = 180,
@@ -249,7 +275,8 @@ export function BarChart({
   data: { label: string; value: number }[];
   height?: number;
 }) {
-  const max = Math.max(...data.map((d) => d.value));
+  if (data.length === 0) return <ChartEmpty height={height} />;
+  const max = Math.max(...data.map((d) => d.value), 1);
   return (
     <div className="flex items-end gap-2" style={{ height }}>
       {data.map((d) => (
@@ -372,6 +399,7 @@ export function LineChart({
   height?: number;
   suffix?: string;
 }) {
+  if (data.length < 2) return <ChartEmpty height={height} />;
   const max = Math.max(...data.map((d) => d.value));
   const min = Math.min(...data.map((d) => d.value));
   const range = max - min || 1;

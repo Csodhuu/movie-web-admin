@@ -1,25 +1,13 @@
 import type { Metadata } from "next";
 import { Badge, Card, Field, LineChart, PageHeader, ProgressRow, StatCard, inputClass } from "@/components/admin";
 import { SaveButton, ToggleRow } from "@/components/admin-client";
-import { recoCtr } from "@/lib/mock-data";
+import { recoCtr } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Санал болголтын систем" };
 
-const signals = [
-  { label: "Үзсэн түүх", value: 35 },
-  { label: "Үнэлгээ, лайк", value: 20 },
-  { label: "Төстэй хэрэглэгчид", value: 20 },
-  { label: "Шинэ контент", value: 15 },
-  { label: "Трэнд", value: 10 },
-];
+const signals: { label: string; value: number }[] = [];
 
-const rows = [
-  { name: "Таньд зориулсан", model: "collab-v3", active: true },
-  { name: "Үргэлжлүүлэн үзэх", model: "rule-based", active: true },
-  { name: "Учир нь та ... үзсэн", model: "content-sim-v2", active: true },
-  { name: "Трэнд Монголд", model: "trending-v1", active: true },
-  { name: "Шөнийн кино", model: "time-context-v1", active: false },
-];
+const rows: { name: string; model: string; active: boolean }[] = [];
 
 export default function RecommendationsPage() {
   return (
@@ -31,10 +19,10 @@ export default function RecommendationsPage() {
       />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="CTR" value="26.3%" change={6.0} icon="eye" />
-        <StatCard label="Санал болголтоос үзсэн" value="41%" change={3.4} icon="play" />
-        <StatCard label="Дундаж хариу хугацаа" value="38 мс" change={-12} icon="clock" />
-        <StatCard label="Модель шинэчлэгдсэн" value="2 цаг өмнө" icon="sparkles" />
+        <StatCard label="CTR" value="—" icon="eye" />
+        <StatCard label="Санал болголтоос үзсэн" value="—" icon="play" />
+        <StatCard label="Дундаж хариу хугацаа" value="—" icon="clock" />
+        <StatCard label="Модель шинэчлэгдсэн" value="—" icon="sparkles" />
       </div>
 
       <div className="grid gap-4 xl:grid-cols-3">

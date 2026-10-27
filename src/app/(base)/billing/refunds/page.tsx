@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Button, Card, PageHeader, StatCard, StatusBadge, Table, Td } from "@/components/admin";
 import { Tabs } from "@/components/admin-client";
-import { formatMNT, refunds } from "@/lib/mock-data";
+import { refunds } from "@/lib/placeholders";
+import { formatMNT } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Буцаалт" };
 
@@ -11,9 +12,9 @@ export default function RefundsPage() {
       <PageHeader title="Буцаалт" description="Төлбөр буцаах хүсэлтүүдийг шийдвэрлэх" />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-3">
-        <StatCard label="Хүлээгдэж буй" value="2" icon="clock" />
-        <StatCard label="Энэ сард буцаасан" value="₮1.2M" change={-8.3} icon="refund" />
-        <StatCard label="Буцаалтын хувь" value="0.4%" change={-0.1} icon="chart" />
+        <StatCard label="Хүлээгдэж буй" value="—" icon="clock" />
+        <StatCard label="Энэ сард буцаасан" value="—" icon="refund" />
+        <StatCard label="Буцаалтын хувь" value="—" icon="chart" />
       </div>
 
       <Card>

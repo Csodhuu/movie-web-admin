@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Button, Card, Field, PageHeader, StatCard, StatusBadge, Table, Td, inputClass } from "@/components/admin";
 import { Icon } from "@/components/icons";
-import { pushCampaigns } from "@/lib/mock-data";
+import { pushCampaigns } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Push мэдэгдэл" };
 
@@ -11,19 +11,19 @@ export default function PushPage() {
       <PageHeader title="Push мэдэгдэл" description="Гар утас, ТВ апп руу мэдэгдэл илгээх" />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-3">
-        <StatCard label="Энэ сард илгээсэн" value="128K" change={14.0} icon="bell" />
-        <StatCard label="Нээсэн хувь" value="23.7%" change={1.9} icon="eye" />
-        <StatCard label="Мэдэгдэл зөвшөөрсөн" value="71%" icon="check" />
+        <StatCard label="Энэ сард илгээсэн" value="—" icon="bell" />
+        <StatCard label="Нээсэн хувь" value="—" icon="eye" />
+        <StatCard label="Мэдэгдэл зөвшөөрсөн" value="—" icon="check" />
       </div>
 
       <div className="grid gap-4 xl:grid-cols-[1fr_340px]">
         <Card title="Шинэ мэдэгдэл">
           <div className="space-y-4">
             <Field label="Гарчиг">
-              <input className={inputClass} defaultValue="Шөнийн анчин одоо гарлаа! 🎬" />
+              <input className={inputClass} placeholder="Мэдэгдлийн гарчиг" />
             </Field>
             <Field label="Агуулга">
-              <textarea rows={3} className={inputClass} defaultValue="Энэ жилийн хамгийн их хүлээгдсэн триллер — яг одоо үзээрэй." />
+              <textarea rows={3} className={inputClass} placeholder="Мэдэгдлийн агуулга" />
             </Field>
             <div className="grid gap-4 sm:grid-cols-3">
               <Field label="Хүлээн авагч">
@@ -66,8 +66,8 @@ export default function PushPage() {
                 </span>
                 <span className="text-[11px] text-zinc-400">Movie · одоо</span>
               </div>
-              <p className="mt-1.5 text-xs font-semibold text-white">Шөнийн анчин одоо гарлаа! 🎬</p>
-              <p className="text-[11px] text-zinc-400">Энэ жилийн хамгийн их хүлээгдсэн триллер — яг одоо үзээрэй.</p>
+              <p className="mt-1.5 text-xs font-semibold text-white">Мэдэгдлийн гарчиг</p>
+              <p className="text-[11px] text-zinc-400">Мэдэгдлийн агуулга энд харагдана</p>
             </div>
             <div className="h-40" />
           </div>

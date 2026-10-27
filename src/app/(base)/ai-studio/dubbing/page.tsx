@@ -2,22 +2,14 @@ import type { Metadata } from "next";
 import { Avatar, Badge, Button, Card, Field, PageHeader, inputClass } from "@/components/admin";
 import { ToggleRow } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { movies } from "@/lib/mock-data";
+import { movies } from "@/lib/placeholders";
 import { JobQueue, type Job } from "../_components/jobs";
 
 export const metadata: Metadata = { title: "AI дуу оруулга" };
 
-const voices = [
-  { character: "Тэмүүжин", actor: "Батбаяр Нямдорж", voice: "Эрэгтэй · гүн", match: 94 },
-  { character: "Бөртэ", actor: "Наранцэцэг Баяр", voice: "Эмэгтэй · зөөлөн", match: 91 },
-  { character: "Өвгөн", actor: "Оюунчимэг Дашдаваа", voice: "Эрэгтэй · сөөнгө", match: 88 },
-];
+const voices: { character: string; actor: string; voice: string; match: number }[] = [];
 
-const jobs: Job[] = [
-  { id: "d1", title: "Тэнгэрийн хаалга", detail: "MN → EN (3 дүр)", progress: 58, status: "processing", created: "08:30" },
-  { id: "d2", title: "Говийн нууц", detail: "MN → EN (хүүрнэгч)", progress: 100, status: "done", created: "Өчигдөр" },
-  { id: "d3", title: "Нүүдэлчдийн домог S1", detail: "MN → KO (12 дүр)", progress: 0, status: "queued", created: "Өчигдөр" },
-];
+const jobs: Job[] = [];
 
 export default function DubbingPage() {
   return (

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Avatar, Badge, Button, Card, PageHeader, SearchInput, Table, Td } from "@/components/admin";
-import { blockedUsers } from "@/lib/mock-data";
+import { blockedUsers } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Хаагдсан хэрэглэгчид" };
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button, Card, IconButton, cn, inputClass } from "@/components/admin";
 import { Icon, type IconName } from "@/components/icons";
-import { movies } from "@/lib/mock-data";
+import { movies } from "@/lib/placeholders";
 
 export type Tool = "description" | "tags" | "subtitles" | "poster";
 
@@ -16,19 +16,8 @@ const allTools:{ key: Tool; label: string; desc: string; icon: IconName }[] = [
 
 const tones = ["Албан", "Сонирхолтой", "Товч", "Дэлгэрэнгүй"];
 
-// UI шат: AI API-тай холбогдоогүй тул жишээ хариу буцаана.
-function mockResult(tool: Tool, title: string, tone: string) {
-  switch (tool) {
-    case "description":
-      return `"${title}" бол Монголын өргөн уудам тал нутагт өрнөх, гэр бүл, итгэл, золиослолын тухай сэтгэл хөдөлгөм түүх юм. Гол дүр өөрийн өнгөрсөнтэй нүүр тулж, хайртай хүмүүсээ хамгаалахын тулд хамгийн хэцүү сонголтыг хийх ёстой болно. (${tone} өнгө аяс)`;
-    case "tags":
-      return "#драм #гэрбүл #монголкино #адалявдал #2026 #тал_нутаг #сэтгэлхөдлөм #шинэкино";
-    case "subtitles":
-      return `1\n00:00:01,000 --> 00:00:04,200\nWelcome home, my son.\n\n2\n00:00:04,800 --> 00:00:07,500\nThe steppe has been waiting for you.\n\n3\n00:00:08,100 --> 00:00:11,000\nI never thought I would return.`;
-    case "poster":
-      return `1. Нар жаргах үеийн тал, тэнгэрийн дэвсгэр дээр гол дүрийн сүүдэр.\n2. Улаан, алтлаг өнгө давамгайлсан, том хэвлэмэл "${title}" гарчиг доор нь.\n3. Хоёр өнгийн хувилбар: нэг нь бүдэг манантай, нөгөө нь тод контрасттай.`;
-  }
-}
+// TODO: AI API (Тохиргоо → AI API түлхүүр) холбогдоход жинхэнэ үр дүн буцаана.
+const NOT_CONNECTED = "AI үйлчилгээ холбогдоогүй байна. Тохиргоо → AI API түлхүүр хэсэгт түлхүүр нэмсний дараа ажиллана.";
 
 type HistoryItem = { id: number; tool: Tool; title: string; result: string; time: string };
 
@@ -36,32 +25,21 @@ type HistoryItem = { id: number; tool: Tool; title: string; result: string; time
 export function Generator({ only }: { only?: Tool[] }) {
   const tools = only ? allTools.filter((t) => only.includes(t.key)) : allTools;
   const [tool, setTool] = useState<Tool>(tools[0].key);
-  const [movie, setMovie] = useState(movies[0].title);
+  const [movie, setMovie] = useState(movies[0]?.title ?? "");
   const [tone, setTone] = useState(tones[1]);
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState("");
   const [copied, setCopied] = useState(false);
-  const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [history] = useState<HistoryItem[]>([]);
 
   function generate() {
     setLoading(true);
     setResult("");
     setTimeout(() => {
-      const text = mockResult(tool, movie, tone);
-      setResult(text);
+      setResult(NOT_CONNECTED);
       setLoading(false);
-      setHistory((prev) => [
-        {
-          id: Date.now(),
-          tool,
-          title: movie,
-          result: text,
-          time: new Date().toLocaleTimeString("mn-MN", { hour: "2-digit", minute: "2-digit" }),
-        },
-        ...prev,
-      ]);
-    }, 1200);
+    }, 300);
   }
 
   async function copy() {

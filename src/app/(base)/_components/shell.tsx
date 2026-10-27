@@ -4,10 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { Icon } from "@/components/icons";
-import { Avatar, cn } from "@/components/admin";
+import { cn } from "@/components/admin";
 import { isActive, nav } from "./nav";
 
-export function Shell({ children }: { children: ReactNode }) {
+export function Shell({ children, account }: { children: ReactNode; account: ReactNode }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   // Хэрэглэгч гараар нээсэн/хаасан бүлэг. Тохируулаагүй бол идэвхтэй бүлэг нээлттэй.
@@ -133,23 +133,7 @@ export function Shell({ children }: { children: ReactNode }) {
           </ul>
         </nav>
 
-        <div className="shrink-0 border-t border-zinc-800/80 p-3">
-          <div className="flex items-center gap-3 rounded-lg p-2">
-            <Avatar name="Админ" />
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-medium">Админ</p>
-              <p className="truncate text-xs text-zinc-500">Super Admin</p>
-            </div>
-            <Link
-              href="/login"
-              aria-label="Гарах"
-              title="Гарах"
-              className="rounded-md p-1.5 text-zinc-500 transition hover:bg-zinc-800 hover:text-red-400"
-            >
-              <Icon name="logout" className="size-4" />
-            </Link>
-          </div>
-        </div>
+        <div className="shrink-0 border-t border-zinc-800/80 p-3">{account}</div>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
@@ -189,7 +173,6 @@ export function Shell({ children }: { children: ReactNode }) {
               aria-label="Мэдэгдэл"
             >
               <Icon name="bell" />
-              <span className="absolute top-1.5 right-1.5 size-2 rounded-full bg-red-500 ring-2 ring-zinc-950" />
             </button>
           </div>
         </header>

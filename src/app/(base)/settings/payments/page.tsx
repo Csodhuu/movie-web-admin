@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Badge, Button, Card, Field, PageHeader, inputClass } from "@/components/admin";
-import { CopyField, SaveButton, ToggleRow } from "@/components/admin-client";
+import { SaveButton, ToggleRow } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
 
 export const metadata: Metadata = { title: "Төлбөрийн систем" };
 
 const gateways = [
-  { name: "QPay", desc: "QR код, банкны апп", connected: true, share: "54%" },
-  { name: "SocialPay", desc: "Голомт банк", connected: true, share: "14%" },
-  { name: "Visa / Mastercard", desc: "Олон улсын карт", connected: true, share: "27%" },
+  { name: "QPay", desc: "QR код, банкны апп", connected: false, share: "—" },
+  { name: "SocialPay", desc: "Голомт банк", connected: false, share: "—" },
+  { name: "Visa / Mastercard", desc: "Олон улсын карт", connected: false, share: "—" },
   { name: "Monpay", desc: "Цахим түрийвч", connected: false, share: "—" },
   { name: "Apple / Google Pay", desc: "Апп доторх төлбөр", connected: false, share: "—" },
 ];
@@ -41,13 +41,13 @@ export default function PaymentsSettingsPage() {
         <Card title="QPay тохиргоо">
           <div className="space-y-4">
             <Field label="Merchant ID">
-              <CopyField value="MOVIE_MN_00241" />
+              <input className={inputClass} placeholder="QPay-аас авсан Merchant ID" />
             </Field>
             <Field label="Client secret">
-              <CopyField value="qp_live_8f2a91c4e7b6d03f5a1c" secret />
+              <input type="password" className={inputClass} placeholder="Client secret" />
             </Field>
             <Field label="Callback URL">
-              <CopyField value="https://api.example.com/webhooks/qpay" />
+              <input className={inputClass} placeholder="https://.../webhooks/qpay" />
             </Field>
           </div>
         </Card>

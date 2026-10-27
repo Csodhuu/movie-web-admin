@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Badge, Card, Field, IconButton, PageHeader, inputClass } from "@/components/admin";
 import { ModalButton, Tabs } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { faqs } from "@/lib/mock-data";
+import { faqs } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Түгээмэл асуулт" };
 

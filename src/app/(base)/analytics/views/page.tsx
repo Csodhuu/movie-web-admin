@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BarChart, Button, Card, PageHeader, ProgressRow, StatCard, Table, Td } from "@/components/admin";
-import { deviceShare, formatCompact, genreShare, monthlyViews, movies } from "@/lib/mock-data";
+import { deviceShare, genreShare, monthlyViews, movies } from "@/lib/placeholders";
+import { formatCompact } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Үзэлтийн тайлан" };
 
@@ -38,10 +39,10 @@ export default function AnalyticsPage() {
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Нийт үзсэн цаг" value="1.24M" change={11.4} icon="clock" />
-        <StatCard label="Дундаж үзэлт / хэрэглэгч" value="36 цаг" change={3.1} icon="eye" />
-        <StatCard label="Шинэ бүртгэл" value="2,184" change={14.7} icon="users" />
-        <StatCard label="Цуцлалт (churn)" value="2.8%" change={-0.4} icon="down" />
+        <StatCard label="Нийт үзсэн цаг" value="—" icon="clock" />
+        <StatCard label="Дундаж үзэлт / хэрэглэгч" value="—" icon="eye" />
+        <StatCard label="Шинэ бүртгэл" value="—" icon="users" />
+        <StatCard label="Цуцлалт (churn)" value="—" icon="down" />
       </div>
 
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
@@ -70,23 +71,23 @@ export default function AnalyticsPage() {
         </Card>
         <Card title="Хэрэглэгчийн байршил">
           <div className="space-y-4">
-            <ProgressRow label="Улаанбаатар" value={68} />
-            <ProgressRow label="Дархан-Уул" value={8} />
-            <ProgressRow label="Орхон" value={7} />
-            <ProgressRow label="Бусад аймаг" value={11} />
-            <ProgressRow label="Гадаад" value={6} />
+            <ProgressRow label="Улаанбаатар" value={0} />
+            <ProgressRow label="Дархан-Уул" value={0} />
+            <ProgressRow label="Орхон" value={0} />
+            <ProgressRow label="Бусад аймаг" value={0} />
+            <ProgressRow label="Гадаад" value={0} />
           </div>
         </Card>
       </div>
 
       <Card title="Контентын гүйцэтгэл" className="mt-4">
         <Table head={["Нэр", "Төрөл", "Үзэлт", "Дуусгасан %", "Үнэлгээ"]}>
-          {ranked.map((m, i) => (
+          {ranked.map((m) => (
             <tr key={m.id} className="hover:bg-zinc-900/60">
               <Td className="font-medium text-zinc-100">{m.title}</Td>
               <Td>{m.type}</Td>
               <Td>{formatCompact(m.views)}</Td>
-              <Td>{[82, 76, 71, 69, 64, 61, 58, 52][i] ?? 50}%</Td>
+              <Td>—</Td>
               <Td>⭐ {m.rating}</Td>
             </tr>
           ))}

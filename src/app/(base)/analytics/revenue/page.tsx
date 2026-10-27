@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { BarChart, Button, Card, LineChart, PageHeader, ProgressRow, StatCard, Table, Td } from "@/components/admin";
 import { Tabs } from "@/components/admin-client";
-import { formatMNT, monthlyRevenue, plans } from "@/lib/mock-data";
+import { monthlyRevenue, plans } from "@/lib/placeholders";
+import { formatMNT } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Орлогын тайлан" };
 
@@ -24,10 +25,10 @@ export default function RevenueReportPage() {
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="MRR" value="₮421.3M" change={8.1} icon="wallet" />
-        <StatCard label="ARR" value="₮5.06B" change={8.1} icon="chart" />
-        <StatCard label="ARPU" value="₮25,960" change={2.6} icon="users" />
-        <StatCard label="LTV" value="₮312K" change={4.0} icon="star" />
+        <StatCard label="MRR" value="—" icon="wallet" />
+        <StatCard label="ARR" value="—" icon="chart" />
+        <StatCard label="ARPU" value="—" icon="users" />
+        <StatCard label="LTV" value="—" icon="star" />
       </div>
 
       <div className="mt-4 grid gap-4 xl:grid-cols-3">
@@ -36,10 +37,10 @@ export default function RevenueReportPage() {
         </Card>
         <Card title="Төлбөрийн хэлбэр">
           <div className="space-y-4">
-            <ProgressRow label="QPay" value={54} />
-            <ProgressRow label="Карт" value={27} />
-            <ProgressRow label="SocialPay" value={14} />
-            <ProgressRow label="Бусад" value={5} />
+            <ProgressRow label="QPay" value={0} />
+            <ProgressRow label="Карт" value={0} />
+            <ProgressRow label="SocialPay" value={0} />
+            <ProgressRow label="Бусад" value={0} />
           </div>
         </Card>
       </div>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Card, LineChart, PageHeader, ProgressRow, StatCard } from "@/components/admin";
-import { retentionCohorts } from "@/lib/mock-data";
+import { retentionCohorts } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Хэрэглэгчийн хадгалалт" };
 
@@ -15,10 +15,10 @@ export default function RetentionPage() {
       <PageHeader title="Хэрэглэгчийн хадгалалт (Retention)" description="Бүртгүүлсэн сараар нь бүлэглэсэн хэрэглэгчдийн үлдэх хувь" />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="1 сарын хадгалалт" value="78%" change={3.2} icon="users" />
-        <StatCard label="3 сарын хадгалалт" value="61%" change={2.1} icon="users" />
-        <StatCard label="Сарын churn" value="2.8%" change={-0.4} icon="down" />
-        <StatCard label="Буцаж ирсэн" value="1,204" change={12.5} icon="refund" />
+        <StatCard label="1 сарын хадгалалт" value="—" icon="users" />
+        <StatCard label="3 сарын хадгалалт" value="—" icon="users" />
+        <StatCard label="Сарын churn" value="—" icon="down" />
+        <StatCard label="Буцаж ирсэн" value="—" icon="refund" />
       </div>
 
       <Card title="Cohort хүснэгт">
@@ -61,23 +61,16 @@ export default function RetentionPage() {
         <Card title="Churn (сараар, %)" className="xl:col-span-2">
           <LineChart
             suffix="%"
-            data={[
-              { label: "5-р", value: 3.6 },
-              { label: "6-р", value: 3.4 },
-              { label: "7-р", value: 3.1 },
-              { label: "8-р", value: 3.3 },
-              { label: "9-р", value: 3.0 },
-              { label: "10-р", value: 2.8 },
-            ]}
+            data={[]}
           />
         </Card>
         <Card title="Цуцалсан шалтгаан">
           <div className="space-y-4">
-            <ProgressRow label="Үнэ өндөр" value={34} />
-            <ProgressRow label="Контент хангалтгүй" value={27} />
-            <ProgressRow label="Цаг завгүй" value={19} />
-            <ProgressRow label="Техникийн асуудал" value={11} />
-            <ProgressRow label="Бусад" value={9} />
+            <ProgressRow label="Үнэ өндөр" value={0} />
+            <ProgressRow label="Контент хангалтгүй" value={0} />
+            <ProgressRow label="Цаг завгүй" value={0} />
+            <ProgressRow label="Техникийн асуудал" value={0} />
+            <ProgressRow label="Бусад" value={0} />
           </div>
         </Card>
       </div>

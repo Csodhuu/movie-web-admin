@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   Avatar,
   BarChart,
-  Badge,
   Button,
   Card,
   PageHeader,
@@ -12,7 +11,8 @@ import {
   StatCard,
 } from "@/components/admin";
 import { Icon } from "@/components/icons";
-import { activity, formatCompact, genreShare, monthlyViews, movies, nowWatching, series } from "@/lib/mock-data";
+import { activity, genreShare, monthlyViews, movies, nowWatching, series } from "@/lib/placeholders";
+import { formatCompact } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Хяналтын самбар" };
 
@@ -41,17 +41,17 @@ export default function DashboardPage() {
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Нийт хэрэглэгч" value="34,650" change={8.2} icon="users" />
-        <StatCard label="Идэвхтэй захиалга" value="16,230" change={5.4} icon="card" />
-        <StatCard label="Сарын орлого" value="₮421.3M" change={8.1} icon="wallet" />
-        <StatCard label="Үзэлт (энэ сар)" value="312K" change={-2.3} icon="eye" />
+        <StatCard label="Нийт хэрэглэгч" value="—" icon="users" />
+        <StatCard label="Идэвхтэй захиалга" value="—" icon="card" />
+        <StatCard label="Сарын орлого" value="—" icon="wallet" />
+        <StatCard label="Үзэлт (энэ сар)" value="—" icon="eye" />
       </div>
 
       <div className="mt-4 grid gap-4 xl:grid-cols-3">
         <Card
           title="Сарын үзэлт"
           className="xl:col-span-2"
-          action={<Badge tone="green">+13% өсөлт</Badge>}
+         
         >
           <BarChart data={monthlyViews} height={220} />
         </Card>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-red-500 opacity-75" />
                 <span className="relative inline-flex size-2 rounded-full bg-red-500" />
               </span>
-              LIVE · 2,847
+              LIVE · 0
             </span>
           }
         >

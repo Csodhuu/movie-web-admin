@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Card, Field, IconButton, PageHeader, StatCard, StatusBadge, Table, Td, inputClass } from "@/components/admin";
 import { ModalButton } from "@/components/admin-client";
-import { emailCampaigns } from "@/lib/mock-data";
+import { emailCampaigns } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "И-мэйл кампанит ажил" };
 
@@ -37,10 +37,10 @@ export default function EmailCampaignsPage() {
       />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Захиалсан хүлээн авагч" value="28,410" change={3.1} icon="mail" />
-        <StatCard label="Нээсэн хувь" value="34.2%" change={2.4} icon="eye" />
-        <StatCard label="Дарсан хувь" value="7.8%" change={0.9} icon="up" />
-        <StatCard label="Захиалгаа цуцалсан" value="0.3%" change={-0.1} icon="ban" />
+        <StatCard label="Захиалсан хүлээн авагч" value="—" icon="mail" />
+        <StatCard label="Нээсэн хувь" value="—" icon="eye" />
+        <StatCard label="Дарсан хувь" value="—" icon="up" />
+        <StatCard label="Захиалгаа цуцалсан" value="—" icon="ban" />
       </div>
 
       <Card>

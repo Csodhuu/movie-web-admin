@@ -17,10 +17,10 @@ export default function StreamingSettingsPage() {
       <PageHeader title="Стриминг, CDN, DRM" description="Видео дамжуулалт, транскод, хамгаалалтын тохиргоо" actions={<SaveButton />} />
 
       <div className="mb-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="CDN cache hit" value="96.4%" change={0.8} icon="server" />
-        <StatCard label="Дундаж эхлэх хугацаа" value="1.2 сек" change={-9} icon="clock" />
-        <StatCard label="Буфер хувь" value="0.6%" change={-0.2} icon="play" />
-        <StatCard label="Сарын траффик" value="842 TB" change={11} icon="live" />
+        <StatCard label="CDN cache hit" value="—" icon="server" />
+        <StatCard label="Дундаж эхлэх хугацаа" value="—" icon="clock" />
+        <StatCard label="Буфер хувь" value="—" icon="play" />
+        <StatCard label="Сарын траффик" value="—" icon="live" />
       </div>
 
       <div className="grid gap-4 xl:grid-cols-2">
@@ -42,10 +42,10 @@ export default function StreamingSettingsPage() {
           </div>
           <p className="mb-3 text-sm text-zinc-300">Бүс тус бүрийн ачаалал</p>
           <div className="space-y-3">
-            <ProgressRow label="Улаанбаатар" value={71} />
-            <ProgressRow label="Азийн бүс" value={18} />
-            <ProgressRow label="Европ" value={7} />
-            <ProgressRow label="Америк" value={4} />
+            <ProgressRow label="Улаанбаатар" value={0} />
+            <ProgressRow label="Азийн бүс" value={0} />
+            <ProgressRow label="Европ" value={0} />
+            <ProgressRow label="Америк" value={0} />
           </div>
         </Card>
 

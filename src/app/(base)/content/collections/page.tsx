@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Badge, Card, Field, IconButton, PageHeader, Poster, UploadBox, inputClass } from "@/components/admin";
 import { ModalButton } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { collections, movies } from "@/lib/mock-data";
+import { collections, movies } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Баннер, жагсаалт" };
 
@@ -41,14 +41,8 @@ export default function CollectionsPage() {
       <Card title="Урьдчилсан харагдац" className="mb-4">
         <div className="relative flex aspect-[3/1] items-end overflow-hidden rounded-lg bg-gradient-to-r from-red-950 via-zinc-900 to-zinc-950 p-6 sm:p-8">
           <div className="max-w-md">
-            <Badge tone="red">Шинэ</Badge>
-            <p className="mt-2 text-2xl font-bold text-white sm:text-3xl">Шөнийн анчин</p>
-            <p className="mt-1 hidden text-sm text-zinc-400 sm:block">11 сарын 1-нээс зөвхөн манай платформд</p>
-          </div>
-          <div className="absolute right-4 bottom-4 flex gap-1.5">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <span key={i} className={i === 0 ? "h-1.5 w-6 rounded-full bg-white" : "size-1.5 rounded-full bg-white/30"} />
-            ))}
+            <p className="text-lg font-semibold text-zinc-400">Идэвхтэй баннер алга</p>
+            <p className="mt-1 text-sm text-zinc-500">Баннер нэмж идэвхжүүлэхэд энд харагдана</p>
           </div>
         </div>
         <p className="mt-4 mb-2 text-sm font-medium text-zinc-300">Энэ долоо хоногийн топ 10</p>

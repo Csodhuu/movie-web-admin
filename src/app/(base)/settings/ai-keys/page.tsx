@@ -6,12 +6,7 @@ import { Icon } from "@/components/icons";
 export const metadata: Metadata = { title: "AI моделийн API түлхүүр" };
 
 // Жишээ утгууд. Жинхэнэ түлхүүрийг backend-д нууцлан хадгална.
-const keys = [
-  { provider: "Anthropic", use: "Тайлбар, шошго, модерац", model: "claude-sonnet-5-5", key: "sk-ant-xxxxxxxxxxxxxxxx4f2a", status: "active", usage: 62 },
-  { provider: "ElevenLabs", use: "AI дуу оруулга", model: "multilingual-v3", key: "el_xxxxxxxxxxxxxxxx91bc", status: "active", usage: 48 },
-  { provider: "Whisper (self-hosted)", use: "Яриа таних, хадмал", model: "large-v4", key: "whsp_xxxxxxxxxxxx0d7e", status: "active", usage: 81 },
-  { provider: "Stability", use: "Постер үүсгэх", model: "sd-4", key: "sk-xxxxxxxxxxxxxxxx7a10", status: "inactive", usage: 0 },
-];
+const keys: { provider: string; use: string; model: string; key: string; status: string; usage: number }[] = [];
 
 export default function AiKeysPage() {
   return (

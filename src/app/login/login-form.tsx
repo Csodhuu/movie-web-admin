@@ -1,14 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import { useFormStatus } from "react-dom";
-import { login } from "./actions";
+import { login, type LoginState } from "./actions";
+
+const initialState: LoginState = {};
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
+  const [state, formAction] = useActionState(login, initialState);
 
   return (
-    <form action={login} className="space-y-5">
+    <form action={formAction} className="space-y-5">
+      {state.error && (
+        <div
+          role="alert"
+          className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+        >
+          {state.error}
+        </div>
+      )}
+
       <div className="space-y-2">
         <label htmlFor="email" className="block text-sm font-medium text-zinc-300">
           Имэйл
@@ -18,6 +30,9 @@ export function LoginForm() {
           name="email"
           type="email"
           autoComplete="email"
+          required
+          defaultValue={state.email}
+          key={state.email}
           placeholder="admin@example.com"
           className="block w-full rounded-lg border border-zinc-800 bg-zinc-900/60 px-4 py-3 text-zinc-100 placeholder:text-zinc-600 outline-none transition focus:border-red-500 focus:ring-2 focus:ring-red-500/30"
         />
@@ -38,6 +53,7 @@ export function LoginForm() {
             name="password"
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
+            required
             placeholder="••••••••"
             className="block w-full rounded-lg border border-zinc-800 bg-zinc-900/60 py-3 pl-4 pr-12 text-zinc-100 placeholder:text-zinc-600 outline-none transition focus:border-red-500 focus:ring-2 focus:ring-red-500/30"
           />

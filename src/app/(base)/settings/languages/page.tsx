@@ -5,12 +5,12 @@ import { SaveButton, ToggleRow } from "@/components/admin-client";
 export const metadata: Metadata = { title: "Хэл" };
 
 const languages = [
-  { name: "Монгол", code: "mn", ui: 100, subtitles: 100, isDefault: true, enabled: true },
-  { name: "English", code: "en", ui: 100, subtitles: 86, isDefault: false, enabled: true },
-  { name: "中文", code: "zh", ui: 72, subtitles: 41, isDefault: false, enabled: true },
-  { name: "한국어", code: "ko", ui: 64, subtitles: 38, isDefault: false, enabled: false },
-  { name: "Русский", code: "ru", ui: 58, subtitles: 22, isDefault: false, enabled: false },
-  { name: "日本語", code: "ja", ui: 12, subtitles: 9, isDefault: false, enabled: false },
+  { name: "Монгол", code: "mn", ui: 0, subtitles: 0, isDefault: true, enabled: true },
+  { name: "English", code: "en", ui: 0, subtitles: 0, isDefault: false, enabled: false },
+  { name: "中文", code: "zh", ui: 0, subtitles: 0, isDefault: false, enabled: false },
+  { name: "한국어", code: "ko", ui: 0, subtitles: 0, isDefault: false, enabled: false },
+  { name: "Русский", code: "ru", ui: 0, subtitles: 0, isDefault: false, enabled: false },
+  { name: "日本語", code: "ja", ui: 0, subtitles: 0, isDefault: false, enabled: false },
 ];
 
 function Bar({ value }: { value: number }) {

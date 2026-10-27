@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Badge, Card, Field, IconButton, PageHeader, UploadBox, formatBadge, inputClass } from "@/components/admin";
 import { ModalButton } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { formatCompact, movies, trailers } from "@/lib/mock-data";
+import { movies, trailers } from "@/lib/placeholders";
+import { formatCompact } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Трейлер" };
 

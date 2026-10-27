@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Avatar, Badge, Button, Card, Field, PageHeader, UploadBox, inputClass, type BadgeTone } from "@/components/admin";
 import { ModalButton, Tabs } from "@/components/admin-client";
-import { cast } from "@/lib/mock-data";
+import { cast } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Жүжигчид, найруулагч" };
 

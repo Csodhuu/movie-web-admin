@@ -1,9 +1,10 @@
 "use client";
 
+import { formatCompact } from "@/lib/format";
 import { useState } from "react";
-import { Badge, Button, Card, Field, IconButton, PageHeader, Poster, Table, Td, cn, inputClass, type BadgeTone } from "@/components/admin";
+import { Badge, Button, Card, EmptyState, Field, IconButton, PageHeader, Poster, Table, Td, cn, inputClass, type BadgeTone } from "@/components/admin";
 import { ModalButton } from "@/components/admin-client";
-import { episodes, formatCompact, series, type ContentStatus } from "@/lib/mock-data";
+import { episodes, series, type ContentStatus } from "@/lib/placeholders";
 
 const statusMeta: Record<ContentStatus, { label: string; tone: BadgeTone }> = {
   published: { label: "Нийтлэгдсэн", tone: "green" },
@@ -13,9 +14,37 @@ const statusMeta: Record<ContentStatus, { label: string; tone: BadgeTone }> = {
 };
 
 export function SeriesManager() {
-  const [selectedId, setSelectedId] = useState(series[0].id);
+  const [selectedId, setSelectedId] = useState(series[0]?.id);
   const [season, setSeason] = useState(1);
-  const selected = series.find((s) => s.id === selectedId)!;
+  const selected = series.find((s) => s.id === selectedId);
+
+  const header = (
+    <PageHeader
+      title="Цуврал"
+      description="Цуврал, улирал, ангиудыг удирдах"
+      actions={
+        <ModalButton label="Шинэ цуврал" title="Шинэ цуврал нэмэх">
+          <Field label="Нэр">
+            <input className={inputClass} placeholder="Цувралын нэр" />
+          </Field>
+          <Field label="Тайлбар">
+            <textarea rows={3} className={inputClass} />
+          </Field>
+        </ModalButton>
+      }
+    />
+  );
+
+  if (!selected) {
+    return (
+      <>
+        {header}
+        <Card>
+          <EmptyState icon="film" title="Одоогоор цуврал алга" desc="“Шинэ цуврал” товчоор нэмээрэй" />
+        </Card>
+      </>
+    );
+  }
 
   return (
     <>

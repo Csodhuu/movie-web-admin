@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Badge, Card, Field, PageHeader, StatCard, inputClass } from "@/components/admin";
 import { ModalButton } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { formatMNT, plans } from "@/lib/mock-data";
+import { plans } from "@/lib/placeholders";
+import { formatMNT } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Багцууд" };
 
@@ -38,10 +39,10 @@ export default function PlansPage() {
       />
 
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Сарын орлого (MRR)" value="₮421.3M" change={8.1} icon="wallet" />
-        <StatCard label="Төлбөртэй захиалагч" value="16,230" change={5.4} icon="users" />
-        <StatCard label="Дундаж орлого / хэрэглэгч" value="₮25,960" change={2.6} icon="card" />
-        <StatCard label="Амжилтгүй төлбөр" value="142" change={-12.0} icon="flag" />
+        <StatCard label="Сарын орлого (MRR)" value="—" icon="wallet" />
+        <StatCard label="Төлбөртэй захиалагч" value="—" icon="users" />
+        <StatCard label="Дундаж орлого / хэрэглэгч" value="—" icon="card" />
+        <StatCard label="Амжилтгүй төлбөр" value="—" icon="flag" />
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

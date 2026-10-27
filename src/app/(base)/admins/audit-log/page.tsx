@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Avatar, Button, Card, PageHeader, SearchInput, Table, Td, inputClass, cn } from "@/components/admin";
-import { auditLog } from "@/lib/mock-data";
+import { auditLog } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Үйлдлийн түүх" };
 
@@ -22,9 +22,6 @@ export default function AuditLogPage() {
           <div className="flex flex-col gap-2 sm:flex-row">
             <select className={cn(inputClass, "sm:w-44")}>
               <option>Бүх админ</option>
-              <option>Оюун Батсүх</option>
-              <option>Мөнхбат Ганаа</option>
-              <option>Хулан Даваа</option>
             </select>
             <select className={cn(inputClass, "sm:w-44")}>
               <option>Сүүлийн 7 хоног</option>

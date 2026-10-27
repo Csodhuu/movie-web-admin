@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Badge, Card, Field, IconButton, PageHeader, Table, Td, inputClass } from "@/components/admin";
 import { ModalButton } from "@/components/admin-client";
 import { Icon } from "@/components/icons";
-import { categories, genres } from "@/lib/mock-data";
+import { categories, genres } from "@/lib/placeholders";
 
 export const metadata: Metadata = { title: "Төрөл, ангилал" };
 
